@@ -1,0 +1,7 @@
+cffi==1.14.5
+Cryptodome==1.0
+cryptography==3.4.5
+pycparser==2.20
+pycryptodome==3.10.1
+pyDes==2.0.1
+pyDH==0.1.6

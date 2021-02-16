@@ -1,4 +1,17 @@
 # Byte-compiled / optimized / DLL files
+#only permit two files to accept
+#!SLCM.py
+!credentials.dat
+
+*.py
+logs
+*.log
+.env
+.idea/
+.vscode
+*.sw*
+
+
 __pycache__/
 *.py[cod]
 *$py.class
