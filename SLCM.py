@@ -18,9 +18,12 @@ def getusername_paswd():
     '''
     #function logic
     username=input("Enter your username: <Enter your email address>")
-    password=input("Enter your password. Enter at least 8 characters, "
-                   "with at least one alphabet, one digit, "
-                   "and a character from [#,$,%,*]\n")
+    password=input("Password rules are:"
+                   "\n 1. at least 8 characters, "
+                   "\n 2. has at least one alphabet,"
+                   "\n 3. has at least one digit, "
+                   "\n 4. has at a character in {#,$,%,*}"
+                   "\n Enter your password:")
     validboth=False
     #validate username variable
 
