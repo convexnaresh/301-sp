@@ -80,13 +80,19 @@ print("End using while loop.\n\n")
 
 #lists (arrays)
 years=[2021, 2022, 2023, 2024]
+names=["david", "shane", "emma"] #list or array, list of strings.
 #iterate through a list
 for year in years:
     print("year:", year)
 print("\n\n")
 
 #insert an item in the list
-years+=[2024]
+years+=[2024, 2025, 2026]
+
+a=10
+a +=5
+
+
 print("updated list after insert",years)
 #iterating through list index
 listsize=len(years)
@@ -124,9 +130,16 @@ def function_name(var1, var2, var3):
     print("var1, var2,var3",var1,var2,var3)
     #Other logic
     if type(var1)==type(var2)==type(var3):
-        return var1+var2+var3
+        return var1+var2+var3 #concatenated all vars.
     else:
         return 0
+
+def funa():
+    print("this is fun a")
+
+
+funa()
+
 
 #calling a function
 result=function_name(1,3,3) #passing all integers
@@ -139,12 +152,12 @@ print("Result3:",result3)
 
 print("\n\n")
 #Want to restrict the type of parameters to pass to a function?
-def function_name2(var1:string):
+def function_name2(var1:int):
     print("function_name2")
     print("parameters", var1)
-    return ""+ str(var1)
+    return "--"+ str(var1)
 
-function_name2(14)
+function_name2(78)
 
 '''
 #define more function, call a function from another function.
