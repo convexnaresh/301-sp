@@ -10,3 +10,8 @@ ii) Working with github.com for collaboration and team project.
   -push local commits to remote repos
   -handle change conflits
 iii)
+
+* Item 1
+* Item 2
+  * Item 2a
+  * Item 2b
