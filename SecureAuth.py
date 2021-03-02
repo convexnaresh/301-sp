@@ -6,20 +6,20 @@ and defined functions under @TODO annotation, according to the logic/functional 
 Students are not expected to midify main() function.
 '''
 import hashlib
-def secure_hashed_passwd(username, hpasswd):
+def secure_hashed_passwd(username, passwd):
     import hashlib, uuid
     import os
 
     '''
     @TODO: Students are required to implement this function.
-    using salt+paper+sha3-512 algorithm
+    using salt+paper+sha3-224 algorithm
     :param username: string repr of username
-    :param hpasswd: sha-3-152 string hash value
+    :param passwd: a plain text password
     :return: True if given values are stored successfully in outfile var; else returns False
     '''
 
 
-    #use salt and pepper to hash 'hpasswd' using sha-3-512 algorithm
+    #use salt and pepper to hash 'hpasswd' using sha-3-224 algorithm
     # Add salt
 
     # add pepper
