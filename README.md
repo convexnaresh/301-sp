@@ -9,7 +9,11 @@ Through this repository, we will meet the following learning objectives:
     * commit local changes
     * pull the remote changes
     * push local commits to remote repos
-    * handle change conflits
+    * handle change conflits in git
+1. Cryptography in Action: Learn to integrate cryptographic tools and primitives to secure an application
+1. Tools/Techniques of Secure programming on Desktop
+1. Tools/Techniques of Secure Web-Programming
+
 
 ### Programming Assignment-2
 
