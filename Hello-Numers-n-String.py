@@ -33,6 +33,11 @@ print("First letter uupper Case:",fupper_str)
 allupper=mystring.upper()
 print("All char upper:",allupper)
 
+#split a string into tokens
+tokens=mystring.split()
+print("tokens=",tokens)
+print("token at index 0=", tokens[0])
+print("\n")
 
 #string enumeration: Access both index and values
 allow_list= ['apples', 'bananas', 'oranges']
