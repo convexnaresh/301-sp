@@ -1,3 +1,13 @@
+#Author: Naresh Adh
+#Date: 03/15/2021
+#Through this program, students will learn to:
+#1. validate an input file and contents in it.
+#2. Handle file opening in a mode
+#2.1. Handle file exceptions, etc.
+#3. Search file contents
+
+
+
 def parse_file(filename):
     #open the file to read, and implement the logic as required by the assignment-4
 
@@ -7,7 +17,7 @@ def validate_file(filename):
     #validate if the file is a text file, if it is return true, otherwise return false
 
 
-    return False
+    return True
     pass #//you can remove this line on your side
 
 
