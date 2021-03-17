@@ -26,5 +26,6 @@ def parse_text_file(filename):
         # Task-7: create a search variable named as sarch_username=naresh.adhikari@sru.edu outside the loop, and perform a search to find if the search value 'naresh.adhikari@sru.edu' exists in the data file. Compare the search field with every user email field value in each row of the input file.
 
 
+#Run it.
 filename = "hlogins.dat"
 parse_text_file(filename)
