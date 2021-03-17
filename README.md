@@ -18,12 +18,19 @@ Through this repository, we will meet the following learning objectives:
 ### Programming Assignment-2
 
 * Refer *assignment-2.pdf* for instructions
-* Refer *SLCM.py* and *credentials.dat* as skeletal program files
+* Refer *SLCM.py* and *credentials.dat* as skeletal program file and data file
 * Refer *SLCM-Sol.py* as a potential solution for the assignment. (NOT UPLOADED)
 
 ### Programming Assignment-3
 
 For programming assignment-3, you need to share me (convex.naresh@gmail.com) your github.com repository with the solutions.
 * Refer *Assignment-3.pdf* for instructions
-* Refer *SecureAuth.py* and *hlogins.dat* as skeletal program files
-* Refer *SecureAuth-Sol.py* as a potential solution for the assignment.(NOT UPLOADED
+* Refer *SecureAuth.py* and *hlogins.dat* as skeletal program file and data file
+* Refer *SecureAuth-Sol.py* as a potential solution for the assignment.(NOT UPLOADED)
+
+### Programming Assignment-4
+
+For programming assignment-3, you need to share me (convex.naresh@gmail.com) your github.com repository with the solutions.
+* Refer *Assignment-4.pdf* for instructions
+* Refer *Confighandler.py* and *myconfig.txt* as skeletal program file and data file
+* Refer *Confighandler-Sol.py* as a potential solution for the assignment.(NOT UPLOADED)
