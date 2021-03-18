@@ -1,9 +1,8 @@
 def parse_text_file(filename):
     # databse file with username and hashed-password.
-    infile = "hlogins.dadt"
     # open the file to read
     try:
-        fd = open(infile, "r")
+        fd = open(filename, "r")
     except Exception as e:
         print("File read error!: ", str(e))
         exit()
