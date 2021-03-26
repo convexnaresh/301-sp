@@ -12,7 +12,28 @@ def classify_settings(filename):
 
     # implement function-1 as instructed
 
+    seton= []
+    setoff = []
+    setdefault = []
+
+    #Open the file
+
+    #Read line by line from the file
+
+        #use regular expression to find a line which is set to be 'true'
+            #then parse the line to get the keyword, and insert it into seton list
+            # seton +=[keyword]
+
+        # use regular expression to find a line which is set to be 'false'
+             # then parse the line to get the keyword, and insert it into setoff list
+             # setoff +=[keyword]
+
+        # use regular expression to find a line which is set to be 'default'
+             # then parse the line to get the keyword, and insert it into setoff list
+             # setdefault +=[keyword]
+
     #//return lists
+    return seton, setoff, setdefault
     pass
 
 
@@ -20,6 +41,10 @@ def classify_settings(filename):
 def  print_settings(setonlist, setofflist, setdefaultlist) :
 
     #implement function-2 as instructed
+    non = len(setonlist)
+    print("1) Set On keywords:")
+    for i in range(1,non+1):
+        print("{i}) {}", i, setonlist[i])
 
     pass
 
