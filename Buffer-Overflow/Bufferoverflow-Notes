@@ -1,0 +1,143 @@
+~/301
+1. go through bof.c
+2. compile bof.c
+	$gcc -fno-stack-protector -o bof bof.c
+3. run bof.c
+	$./bof
+
+1. go through bufat.c
+2. compile bufat.c
+	$gcc -g -fno-stack-protector -z execstack -o bufat bufat.c
+3. run bof.c
+	printf "Name:Naresh Adhikari" | ./bufat #good exec
+	printf "Name:Naresh Adhikari;AAAAAAAAAAAAAAAAAAABBBBBBB:ls -la" | ./bufat #injected exec
+
+
+---------------------------------------|--------|---------------------------------------
+			name[40]->buffer[40]	   |	G   |	"uname -a" -> c[40]
+---------------------------------------|--------|---------------------------------------
+Name:Naresh Adhikari			       |    G    uname -a
+---------------------------------------|--------|---------------------------------------
+Name:Naresh Adhikari;AAAAAAAAAAAAAAAAAAABBBBBBB:ls -la
+---------------------------------------|--------|---------------------------------------
+
+G = Garbage
+
+
+#Compile and Run a C Program
+
+	$gcc -o abc abc.c #compile this program
+	$size abc #view text, initialized global data, unitialized global data, heap and stack memory of the program
+	$./abc #run this program
+
+#Assembly Language of C Program
+	$objdump -d abc.out
+	or
+	$gdb abc.out
+		(gdb) disas function-name
+
+	More about Assembly language..
+		http://patshaughnessy.net/2016/11/26/learning-to-read-x86-assembly-language
+
+#GDB tutorials https://cs.brown.edu/courses/cs033/docs/guides/gdb.pdf
+	gdb abc #object code 'abc' after compilation.
+	disas anyfunc
+
+	layout next
+	run
+
+	list
+	print $ #registers %
+	print i #variables
+
+	#info frame to show the stack frame info
+	To read the memory at given addresses you should take a look at x
+	x/x $esp for hex x/d $esp for signed x/u $esp for unsigned etc. x uses the format syntax, you could also take a look at the current instruction via x/i $eip etc.
+
+
+#Buffer-overflow Protection using canaries
+	https://stackoverflow.com/questions/1345670/stack-smashing-detected
+	$gcc -fno-stack-protector -o abc abc.c
+	$./abc
+
+	#disable warning -c
+
+	#enable canaries
+	$gcc -o abc abc.c
+	$./abc
+
+	The compiler, (in this case gcc) adds protection variables (called canaries) which have known values. An input string of size greater than 10 causes corruption of this variable resulting in SIGABRT to terminate the program.
+	To get some insight, you can try disabling this protection of gcc using option  -fno-stack-protector  while compiling. In that case you will get a different error, most likely a segmentation fault as you are trying to access an illegal memory location. Note that -fstack-protector should always be turned on for release builds as it is a security feature.
+
+	You can get some information about the point of overflow by running the program with a debugger. Valgrind doesn't work well with stack-related errors, but like a debugger, it may help you pin-point the location and reason for the crash.
+
+
+#Examples of Buffer-Overflow:
+
+	Example-1
+		#To exploit uses
+		codeinj.c
+		gcc -fno-stack-protector -w -o codeinj.c codeinj.c.c
+		#gcc -m32 -g -mpreferred-stack-boundary=2 -no-pie -fno-stack-protector -Wl,-z,norelro -z execstack -o codeinj.c ./codeinj.c
+		printf "123456789abc\xa4\x83\x04\x08" | ./codeinj #injection
+
+	Example-2
+		bufat.c
+		$gcc -g -fno-stack-protector -z execstack -o bufat bufat.c
+		printf "Name:Naresh Adhikari" | ./bufat #good exec
+		printf "Name:Naresh Adhikari;AAAAAAAAAAAAAAAAAAABBBBBBB:ls -la" | ./bufat #injected exec
+
+#References:
+
+	https://samsclass.info/127/proj/p1-lbci.htm
+	https://www.tenouk.com/Bufferoverflowc/Bufferoverflow4.html
+	https://security.stackexchange.com/questions/72653/exploiting-buffer-overflow-leads-to-segfault
+	https://security.stackexchange.com/questions/72653/exploiting-buffer-overflow-leads-to-segfault
+	https://samsclass.info/127/proj/p1-lbci.htm
+	https://blog.rapid7.com/2019/02/19/stack-based-buffer-overflow-attacks-what-you-need-to-know/
+	https://www.thegeekstuff.com/2011/11/valgrind-memcheck/
+	https://www.thegeekstuff.com/2013/06/buffer-overflow/
+
+	Compare Tools Valgrind vs Address-Sanitizer
+	https://llvm.org/devmtg/2011-11/Serebryany_FindingRacesMemoryErrors.pdf
+	https://embeddedbits.org/finding-memory-bugs-with-addresssanitizer/#:~:text=Buffer%20overflow%20or%20buffer%20overrun,and%20overwrites%20adjacent%20memory%20locations.&text=Memory%20leak%20is%20when%20a,uses%20memory%20regions%20already%20deallocated.
+
+
+#Tools
+	OS
+		Ubuntu or Windows
+			Windows Users Please do:
+				run ubuntu app
+				$sudo apt update
+				$sudo apt install vim
+				$sudo apt install gcc
+				$sudo apt install build-essential
+				$sudo apt install automake
+
+
+	Sanitizer (ASan), BOON, checksec.sh
+	gdb
+		$sudo apt install gdb
+	objdump
+		$sudo apt install objdump
+	valgrind
+		$sudo apt install valgrind
+		$rm valgrind.log*
+		$valgrind ./myprogram #object file
+		$valgrind --leak-check=full ./myprogram
+
+		https://datastructuresprogramming.blogspot.com/2010/03/common-problems-with-malloc-and-calloc.html
+		https://security.stackexchange.com/questions/72653/exploiting-buffer-overflow-leads-to-segfault
+
+		$G_SLICE=always-malloc G_DEBUG=gc-friendly  valgrind -v --tool=memcheck --leak-check=full --num-callers=40 --log-file=valgrind.log $(which <program>) <arguments>
+
+		https://www.thegeekstuff.com/2011/11/valgrind-memcheck/
+
+	x86info — display x86 CPU diagnostics
+		sudo apt install x86info
+		$x86info -a
+
+		Static and dynamic tools	https://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=2CAD8347C2505FCA738E50505094BFAD?doi=10.1.1.208.6092&rep=rep1&type=pdf
+
+
+
