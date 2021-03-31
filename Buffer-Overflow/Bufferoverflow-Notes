@@ -1,10 +1,4 @@
 ~/301
-1. go through bof.c
-2. compile bof.c
-	$gcc -fno-stack-protector -o bof bof.c
-3. run bof.c
-	$./bof
-
 1. go through bufat.c
 2. compile bufat.c
 	$gcc -g -fno-stack-protector -z execstack -o bufat bufat.c
@@ -26,19 +20,22 @@ G = Garbage
 
 #Compile and Run a C Program
 
-	$gcc -o abc abc.c #compile this program
-	$size abc #view text, initialized global data, unitialized global data, heap and stack memory of the program
+	$gcc -o sof2 sof2.c #compile this program
+	$size sof2 #view text, initialized global data, unitialized global data, heap and stack memory of the program
 	$./abc #run this program
 
-#Assembly Language of C Program
-	$objdump -d abc.out
+# Compile and view Assembly Language of C Program
+
+    1. $gcc -S sof2.c #produces abc.s with assembly code
+
+	2. $objdump -d sof2.out #https://www.howtoforge.com/linux-objdump-command/
 	or
-	$gdb abc.out
+	3. $gdb sof2.out
 		(gdb) disas function-name
 
 	More about Assembly language..
 		http://patshaughnessy.net/2016/11/26/learning-to-read-x86-assembly-language
-
+        https://youtu.be/yOyaJXpAYZQ
 #GDB tutorials https://cs.brown.edu/courses/cs033/docs/guides/gdb.pdf
 	gdb abc #object code 'abc' after compilation.
 	disas anyfunc
@@ -57,14 +54,14 @@ G = Garbage
 
 #Buffer-overflow Protection using canaries
 	https://stackoverflow.com/questions/1345670/stack-smashing-detected
-	$gcc -fno-stack-protector -o abc abc.c
-	$./abc
+	$gcc -fno-stack-protector -o sof2 sof2.c
+	$./sof2
 
 	#disable warning -c
 
 	#enable canaries
-	$gcc -o abc abc.c
-	$./abc
+	$gcc -o sof2 sof2.c
+	$./sof2
 
 	The compiler, (in this case gcc) adds protection variables (called canaries) which have known values. An input string of size greater than 10 causes corruption of this variable resulting in SIGABRT to terminate the program.
 	To get some insight, you can try disabling this protection of gcc using option  -fno-stack-protector  while compiling. In that case you will get a different error, most likely a segmentation fault as you are trying to access an illegal memory location. Note that -fstack-protector should always be turned on for release builds as it is a security feature.
@@ -138,6 +135,4 @@ G = Garbage
 		$x86info -a
 
 		Static and dynamic tools	https://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=2CAD8347C2505FCA738E50505094BFAD?doi=10.1.1.208.6092&rep=rep1&type=pdf
-
-
 
