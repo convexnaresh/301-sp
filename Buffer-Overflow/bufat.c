@@ -4,7 +4,8 @@
 main(){
        	char name[40];
         printf("What is your name?\n");
-        gets(name);//scanf("%s", name);
+       	gets(name);//scanf("%s", name);
+	
 	
         bo(name, "uname -a");
 }
