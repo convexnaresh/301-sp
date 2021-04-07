@@ -26,7 +26,7 @@ Through this repository, we will meet the following learning objectives:
 For programming assignment-3, you need to share me (convex.naresh@gmail.com) your github.com repository with the solutions.
 * Refer *Assignment-3.pdf* for instructions
 * Refer *SecureAuth.py* and *hlogins.dat* as skeletal program file and data file
-* Refer *SecureAuth-Sol.py* as a potential solution for the assignment.(NOT UPLOADED)
+* Refer *SecureAuth-Sol.py* as a potential solution for the assignment.(UPLOADED)
 
 ### Programming Assignment-4
 
