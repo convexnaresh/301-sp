@@ -6,7 +6,7 @@ void f(int a, int b, int c){
 	char buffer2[5];
 	
 
-	strcpy(buffer1, "AAAAAAAA");
+	strcpy(buffer1, "AAAAAAAAAAAAAAAAAAAAAAAAAAAAaa");
 	
 	printf("%s\n",buffer1);
 	strcpy(buffer2, "BBBB");
