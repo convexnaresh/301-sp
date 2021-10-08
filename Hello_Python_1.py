@@ -134,21 +134,16 @@ def getResponse():
   filename="students.txt"
   fd=open(filename,'r')
 
+  response=''
   lines=fd.readlines()
   print(type(lines))
   for line in lines:
-    print("line:",line);
     values=line.split(",")
-    if name== values[0]
+    if name == values[0]:
       if query=="address":
         response=values[1]
   return response
-serversocket.sendto(bytes(response,"utf-8")
     
-
-  
-
-
 #Python-functions
 def function_name(var1, var2, var3):
     print("function_name(..,..,..)")
@@ -168,6 +163,7 @@ funa()
 
 
 response=getResponse()
+print("response:",response)
 ##serversocket.sendto(bytes(response,"utf-8")
 
 
