@@ -13,6 +13,7 @@
 import string
 import math
 import sys
+print("This is python tutorial file.")
 
 #Python 3 variable declaration and initialization
 lstart_year=2021 #int type, loan start year
@@ -123,6 +124,31 @@ print("\n\n")
 #2. Dictionary
 #3.
 
+def getResponse():
+
+  clientrequest="juraev GET address"
+  name=clientrequest.split(" ")[0]
+  method=clientrequest.split(" ")[1]
+  query=clientrequest.split(" ")[2]
+
+  filename="students.txt"
+  fd=open(filename,'r')
+
+  lines=fd.readlines()
+  print(type(lines))
+  for line in lines:
+    print("line:",line);
+    values=line.split(",")
+    if name== values[0]
+      if query=="address":
+        response=values[1]
+  return response
+serversocket.sendto(bytes(response,"utf-8")
+    
+
+  
+
+
 #Python-functions
 def function_name(var1, var2, var3):
     print("function_name(..,..,..)")
@@ -139,6 +165,11 @@ def funa():
 
 
 funa()
+
+
+response=getResponse()
+##serversocket.sendto(bytes(response,"utf-8")
+
 
 
 #calling a function
@@ -166,7 +197,8 @@ def main():
     result1=function_name(1,2,3)
     result2=function_name2(result1) #calling another function from this function
     print("result2=", result2)
-main()
+
+
 
 '''
 Read more on:https://www.tutorialspoint.com/python/python_basic_syntax.htm
@@ -175,4 +207,4 @@ Read more on:https://www.tutorialspoint.com/python/python_basic_syntax.htm
 #make this file as a python library.
 #this file's name becomes the name of python library/module.
 if __name__ == '__main__':
-    pass
+    main()
